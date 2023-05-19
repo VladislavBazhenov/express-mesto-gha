@@ -38,6 +38,7 @@ cardRouter.delete('/:cardId', (req, res) => {
   const { cardId } = req.params;
   cardSchema
     .findByIdAndRemove(cardId)
+    .orFail()
     .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
