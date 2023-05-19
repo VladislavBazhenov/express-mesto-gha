@@ -37,7 +37,7 @@ usersRouter.post('/', (req, res) => {
     });
 });
 
-usersRouter.get('/:userId', (req, res) => {
+usersRouter.get('/:id', (req, res) => {
   const { id } = req.params;
   User.findById(id)
     .orFail()
