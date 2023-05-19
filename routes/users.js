@@ -40,6 +40,7 @@ usersRouter.post('/', (req, res) => {
 usersRouter.get('/:userId', (req, res) => {
   const { id } = req.params;
   User.findById(id)
+    .orFail()
     .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'CastError') {
